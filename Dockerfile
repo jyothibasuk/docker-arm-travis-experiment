@@ -1,4 +1,4 @@
-FROM node:latest
+FROM balenalib/raspberry-pi-node
 
 WORKDIR /app
 
