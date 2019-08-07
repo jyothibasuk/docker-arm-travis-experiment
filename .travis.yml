@@ -3,7 +3,6 @@ services:
 - docker
 language: bash
 script:
-- echo $DOCKER_USER
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
@@ -11,7 +10,7 @@ script:
 # test image
 - docker run nicolaigram/fitnysever node --version
 # push image
--  docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+-  docker login -u=$DOCKER_USER -p=$DOCKER_PASS
   #TAG=$(grep "ENV MYSQL_VERSION" Dockerfile | awk 'NF>1{print $NF}')
   #docker tag hypriot/rpi-mysql hypriot/rpi-mysql:$TAG
   #docker push hypriot/rpi-mysql:$TAG
